@@ -53,6 +53,7 @@ TTI.datos.cargar = function(callback, onError) {
 TTI.nav.pantallas = {
   bienvenida: 'welcomeScreen',
   talleRemera: 'talleRemeraScreen',
+  talleOversize: 'talleOversizeScreen',
   talleJogger: 'talleJoggerScreen',
   talleBermuda: 'talleBermudaScreen'
 };
@@ -61,11 +62,13 @@ TTI.nav.ocultarTodas = function() {
   var p = TTI.nav.pantallas;
   var bienvenida = document.getElementById(p.bienvenida);
   var remera = document.getElementById(p.talleRemera);
+  var oversize = document.getElementById(p.talleOversize);
   var jogger = document.getElementById(p.talleJogger);
   var bermuda = document.getElementById(p.talleBermuda);
 
   if (bienvenida) bienvenida.style.display = 'none';
   if (remera) remera.style.display = 'none';
+  if (oversize) oversize.style.display = 'none';
   if (jogger) jogger.style.display = 'none';
   if (bermuda) bermuda.style.display = 'none';
 };
@@ -80,6 +83,13 @@ TTI.nav.mostrarBienvenida = function() {
 TTI.nav.irATalleRemera = function() {
   TTI.nav.ocultarTodas();
   var el = document.getElementById(TTI.nav.pantallas.talleRemera);
+  if (el) el.style.display = 'block';
+  window.scrollTo(0, 0);
+};
+
+TTI.nav.irATalleOversize = function() {
+  TTI.nav.ocultarTodas();
+  var el = document.getElementById(TTI.nav.pantallas.talleOversize);
   if (el) el.style.display = 'block';
   window.scrollTo(0, 0);
 };
@@ -105,6 +115,7 @@ TTI.nav.volverDesdeTalle = function() {
 // Exponer funciones al scope global para onclick en HTML
 window.volverInicio = TTI.nav.mostrarBienvenida;
 window.irATalleRemera = TTI.nav.irATalleRemera;
+window.irATalleOversize = TTI.nav.irATalleOversize;
 window.irATalleJogger = TTI.nav.irATalleJogger;
 window.irATalleBermuda = TTI.nav.irATalleBermuda;
 window.volverDesdeTalle = TTI.nav.volverDesdeTalle;

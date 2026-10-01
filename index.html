@@ -33,6 +33,13 @@
             <span class="cta-main">REMERAS</span>
             <span class="cta-sub">Manga corta y larga</span>
           </button>
+          <div class="welcome-cta-group">
+            <button class="welcome-cta" disabled>
+              <span class="cta-main">REMERAS OVERSIZE</span>
+              <span class="cta-sub">Próximo lanzamiento</span>
+            </button>
+            <p class="seasonal-notice">Próximamente disponible.</p>
+          </div>
           <button class="welcome-cta" type="button" onclick="irATalleJogger()">
             <span class="cta-main">JOGGERS</span>
             <span class="cta-sub">Lisos y cargos</span>
@@ -146,6 +153,112 @@
                     <a href="https://wa.me/5491157365177" target="_blank" class="btn-premium-secondary">CONSULTAR POR WHATSAPP</a>
                   </div>
                 </div>      </div>
+    </div>
+
+    <!-- Pantalla saber mi talle de remera oversize -->
+    <div id="talleOversizeScreen" class="talle-screen" style="display:none;">
+      
+      <div class="talle-screen-header">
+        <button class="btn-top-volver" onclick="volverDesdeTalle()">VOLVER</button>
+        
+        <!-- Bloque Superior Fondo Oscuro -->
+        <div class="talle-header-premium">
+          <div class="talle-header-content">
+            <h2 class="talle-header-title">TU REMERA OVERSIZE TTi EMPIEZA POR EL TALLE CORRECTO</h2>
+            <p class="talle-header-subtitle">Calculá tu talle en menos de un minuto.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="talle-card">
+        <h2 class="talle-main-title">CALCULÁ TU TALLE DE REMERA OVERSIZE</h2>
+
+        <div class="talle-instructions-box">
+          <div class="talle-step-item">
+            <span class="talle-step-number">1.</span>
+            <div class="talle-step-content">
+              <span class="talle-step-title">Ancho (Axila a axila) <span class="talle-badge-mandatory">(obligatorio)</span></span>
+              <span class="talle-step-description">Usá una remera oversize que te quede bien y medí el ancho de axila a axila.</span>
+            </div>
+          </div>
+          <div class="talle-step-item">
+            <span class="talle-step-number">2.</span>
+            <div class="talle-step-content">
+              <span class="talle-step-title">Largo <span class="talle-badge-optional">(opcional)</span></span>
+              <span class="talle-step-description">Medí el largo total de la prenda desde el hombro hasta abajo.</span>
+            </div>
+          </div>
+          <div class="talle-step-item">
+            <span class="talle-step-number">3.</span>
+            <div class="talle-step-content">
+              <span class="talle-step-title">Cintura <span class="talle-badge-optional">(opcional)</span></span>
+              <span class="talle-step-description">Medí el ancho a la altura de la cintura.</span>
+            </div>
+          </div>
+          <div class="talle-step-item">
+            <span class="talle-step-number">4.</span>
+            <div class="talle-step-content">
+              <span class="talle-step-title">Calcular</span>
+              <span class="talle-step-description">Ingresá tus medidas y tocá <strong>"Calcular talle"</strong>.</span>
+            </div>
+          </div>
+        </div>
+
+        <button id="openOversizeModalBtn" class="btn-ver-como-medir">
+          VER CÓMO MEDIR
+        </button>
+
+        <div class="talle-form-container">
+          <div class="talle-input-field-left">
+            <label for="anchoOversizeInput" class="talle-label-premium">ANCHO (AXILA A AXILA)</label>
+            <span class="status-mandatory" style="font-size:12px; margin-bottom:8px; display:block;">Obligatorio</span>
+            <input type="number" id="anchoOversizeInput" class="talle-input-premium" placeholder="Ej: 63" min="50" max="80" step="0.1">
+          </div>
+          
+          <div class="talle-input-field-left">
+            <label for="largoOversizeInput" class="talle-label-premium">LARGO (CM)</label>
+            <span class="status-optional" style="font-size:12px; margin-bottom:8px; display:block;">Opcional</span>
+            <input type="number" id="largoOversizeInput" class="talle-input-premium" placeholder="Ej: 83" min="70" max="100" step="0.1">
+          </div>
+
+          <div class="talle-input-field-left">
+            <label for="cinturaOversizeInput" class="talle-label-premium">CINTURA (CM)</label>
+            <span class="status-optional" style="font-size:12px; margin-bottom:8px; display:block;">Opcional</span>
+            <input type="number" id="cinturaOversizeInput" class="talle-input-premium" placeholder="Ej: 58" min="45" max="80" step="0.1">
+          </div>
+        </div>
+
+        <div class="talle-action-buttons">
+          <button id="btnCalcularTalleOversize" class="btn-talle-primary" type="button">CALCULAR TALLE</button>
+          <button id="btnLimpiarTalleOversize" class="btn-talle-secondary" type="button">BORRAR</button>
+          <button type="button" class="btn-talle-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">VOLVER ARRIBA</button>
+        </div>
+
+        <div id="talleOversizeError" class="talle-error" style="display:none;">
+          No contamos con un talle ideal para esas medidas. Escribinos y te asesoramos.
+        </div>
+
+        <div id="talleOversizeResultado" class="talle-result-premium" style="display:none;">
+          <h3 class="result-premium-title">TU TALLE RECOMENDADO ES <span id="talleOversizeSugerido"></span></h3>
+          
+          <div class="result-premium-content">
+            <p class="result-premium-text">
+              Vas a lograr nuestro <span class="result-premium-highlight">Fit Oversize</span>: un calce amplio, moderno y relajado, diseñado con los cortes específicos de nuestra línea oversize para mantener presencia y comodidad superior.
+            </p>
+            
+            <div id="talleOversizeAlternativoCont" class="result-premium-alt-box" style="display:none;">
+              <span class="alt-premium-label">¿Preferís un calce ligeramente menos amplio?</span>
+              <span class="alt-premium-value">Podés elegir <span id="talleOversizeSugeridoMenor"></span>.</span>
+            </div>
+          </div>
+          
+          <h4 class="result-premium-cta-title">PRÓXIMAMENTE</h4>
+          
+          <div class="result-premium-actions">
+            <a href="https://wa.me/5491157365177" target="_blank" class="btn-premium-secondary">CONSULTAR POR WHATSAPP</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Pantalla saber mi talle de jogger -->
@@ -402,6 +515,14 @@
       if (openRemeraModalBtn) {
         openRemeraModalBtn.onclick = function() {
           openImageModal("img/remera.jpg", "Gráfico de referencia para medir remeras");
+        }
+      }
+
+      // Botón para la remera oversize
+      var openOversizeModalBtn = document.getElementById("openOversizeModalBtn");
+      if (openOversizeModalBtn) {
+        openOversizeModalBtn.onclick = function() {
+          openImageModal("img/oversize.jpg", "Gráfico de referencia para medir remeras oversize");
         }
       }
 

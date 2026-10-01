@@ -246,8 +246,80 @@ TTI.talles.bermuda = {
   }
 };
 
+// ---- REMERA OVERSIZE ----
+TTI.talles.oversize = {
+  sugerir: function(ancho) {
+    var rangos = TTI.constantes.talles.oversize.rangos;
+    if (ancho < rangos.min || ancho > rangos.max) return "OUT";
+    if (ancho <= rangos.M) return "M";
+    if (ancho <= rangos.L) return "L";
+    if (ancho <= rangos.XL) return "XL";
+    return "XXL";
+  },
+
+  iniciar: function() {
+    var self = this;
+    var btn = document.getElementById('btnCalcularTalleOversize');
+    if (!btn) return;
+
+    var newBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newBtn, btn);
+
+    newBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var anchoRaw = document.getElementById('anchoOversizeInput').value;
+      var ancho = TTI.talles.validarInput(anchoRaw);
+      
+      var errorBox = document.getElementById('talleOversizeError');
+      var resBox = document.getElementById('talleOversizeResultado');
+
+      if (ancho === null) {
+        alert('Por favor, ingresá un ancho válido (ej: 63).');
+        return;
+      }
+
+      var t = self.sugerir(ancho);
+      if (t === "OUT") {
+        resBox.style.display = 'none';
+        errorBox.style.display = 'block';
+        return;
+      }
+
+      errorBox.style.display = 'none';
+      document.getElementById('talleOversizeSugerido').innerText = t;
+      
+      var orden = TTI.constantes.talles.oversize.orden;
+      var i = orden.indexOf(t);
+      var altCont = document.getElementById('talleOversizeAlternativoCont');
+      var altVal = document.getElementById('talleOversizeSugeridoMenor');
+      
+      if (i > 0) {
+        altVal.innerText = orden[i-1];
+        altCont.style.display = 'block';
+      } else {
+        altCont.style.display = 'none';
+      }
+
+      resBox.style.display = 'block';
+      resBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    var btnClear = document.getElementById('btnLimpiarTalleOversize');
+    if (btnClear) {
+      btnClear.addEventListener('click', function() {
+        document.getElementById('anchoOversizeInput').value = '';
+        document.getElementById('largoOversizeInput').value = '';
+        document.getElementById('cinturaOversizeInput').value = '';
+        document.getElementById('talleOversizeError').style.display = 'none';
+        document.getElementById('talleOversizeResultado').style.display = 'none';
+      });
+    }
+  }
+};
+
 TTI.talles.iniciar = function() {
   TTI.talles.remera.iniciar();
   TTI.talles.jogger.iniciar();
   TTI.talles.bermuda.iniciar();
+  TTI.talles.oversize.iniciar();
 };

@@ -69,7 +69,17 @@ TTI.constantes = {
       { talle: 46, cintura: 92, tiro: 28.5, largo: 49 },
       { talle: 48, cintura: 96, tiro: 29, largo: 50 },
       { talle: 50, cintura: 100, tiro: 29.5, largo: 51 }
-    ]
+    ],
+    oversize: {
+      orden: ["M", "L", "XL", "XXL"],
+      rangos: {
+        min: 56,
+        max: 75,
+        M: 61.5,
+        L: 64.5,
+        XL: 69
+      }
+    }
   },
 
   // ---- LINKS ----
