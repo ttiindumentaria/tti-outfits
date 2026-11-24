@@ -41,12 +41,10 @@
             <span class="cta-main">JOGGERS</span>
             <span class="cta-sub">Lisos y cargos</span>
           </button>
-          <div class="welcome-cta-group">
-            <button class="welcome-cta" disabled>
-              <span class="cta-main" style="font-size: 16px;">CALCULAR TALLE DE BERMUDA</span>
-            </button>
-            <p class="seasonal-notice">Disponible nuevamente en temporada primavera/verano.</p>
-          </div>
+          <button class="welcome-cta" type="button" onclick="irATalleBermuda()">
+            <span class="cta-main">BERMUDAS</span>
+            <span class="cta-sub">Corte chino</span>
+          </button>
         </div>
 
         <div class="welcome-footer">
@@ -388,6 +386,7 @@
               <span class="talle-step-title">Cintura <span class="talle-badge-mandatory">(obligatorio)</span></span>
               <span class="talle-step-description">Medí la cintura de extremo a extremo, sin estirar la prenda.</span>
               <span class="talle-step-clarification"><span class="result-premium-highlight">Solo ingresá esa medida. TTi Uno calcula automáticamente el contorno real.</span></span>
+              <span class="talle-step-clarification">El talle se calcula por la cintura. Tiro y largo son referencias opcionales para comparar el calce.</span>
             </div>
           </div>
 
@@ -436,7 +435,7 @@
           <button type="button" class="btn-talle-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">VOLVER ARRIBA</button>
         </div>
 
-        <div id="talleBermudaError" class="talle-error" style="display:none;"></div>
+        <div id="talleBermudaError" class="talle-error" role="alert" style="display:none;"></div>
 
         <div id="talleBermudaResultadoPremium" class="talle-result-premium" style="display:none;">
           <h3 class="result-premium-title">TU TALLE RECOMENDADO ES <span id="talleBermudaSugerido"></span></h3>
@@ -460,7 +459,7 @@
           <h4 class="result-premium-cta-title">CONSEGUÍ TU BERMUDA</h4>
           
           <div class="result-premium-actions">
-            <a href="https://www.tetelestai.com.ar/bermuda/" target="_blank" class="btn-premium-primary">VER BERMUDAS</a>
+            <a href="https://tetelestai.com.ar/pantalon/bermuda-corte-chino/" target="_blank" rel="noopener noreferrer" class="btn-premium-primary">VER BERMUDAS</a>
             <a href="https://wa.me/5491157365177" target="_blank" class="btn-premium-secondary">CONSULTAR POR WHATSAPP</a>
           </div>
         </div>

@@ -182,7 +182,10 @@ TTI.talles.bermuda = {
       var resBox = document.getElementById("talleBermudaResultadoPremium");
 
       if (cPlano === null) {
-        alert("Necesitamos la medida de cintura.");
+        resBox.style.display = "none";
+        errorBox.textContent = "Ingresá una medida válida de cintura en plano (ej: 44 cm).";
+        errorBox.style.display = "block";
+        document.getElementById("cinturaBermudaInput").focus();
         return;
       }
 
@@ -215,8 +218,8 @@ TTI.talles.bermuda = {
       };
 
       document.getElementById("talleBermudaSugerido").textContent = mejor.talle;
-      document.getElementById("talleBermudaInfoMedida").textContent = 
-        "La medida que ingresaste corresponde aproximadamente a una cintura de " + formatearNum(cinturaTotal) + " cm de contorno.";
+      document.getElementById("talleBermudaInfoMedida").textContent =
+        "Ingresaste " + formatearNum(cPlano) + " cm de cintura en plano, equivalentes a " + formatearNum(cinturaTotal) + " cm de contorno. Medidas de referencia del talle " + mejor.talle + ": cintura en plano " + formatearNum(mejor.cintura / 2) + " cm, tiro " + formatearNum(mejor.tiro) + " cm y largo " + formatearNum(mejor.largo) + " cm.";
 
       var altCont = document.getElementById("talleBermudaAlternativoCont");
       var altVal = document.getElementById("talleBermudaSugeridoMayor");
