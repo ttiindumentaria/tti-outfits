@@ -13,6 +13,16 @@ TTI.talles.validarInput = function(valor) {
   return num;
 };
 
+// El enlace conserva las medidas usadas para obtener el resultado visible.
+TTI.talles.actualizarWhatsApp = function(resultado, prenda, medida, valor, talle) {
+  var enlace = document.querySelector('#' + resultado + ' .btn-whatsapp');
+  if (!enlace) return;
+  var mensaje = '¡Hola! Vengo de usar TTi Uno para calcular mi talle de ' + prenda +
+    '. Ingresé ' + valor.toString().replace('.', ',') + ' cm de ' + medida +
+    ' en plano y me recomendó talle ' + talle + '. Quería consultarles algo.';
+  enlace.href = 'https://wa.me/5491157365177?text=' + encodeURIComponent(mensaje);
+};
+
 // ---- REMERA ----
 TTI.talles.remera = {
   sugerir: function(ancho) {
@@ -55,6 +65,7 @@ TTI.talles.remera = {
 
       errorBox.style.display = 'none';
       document.getElementById('talleSugerido').innerText = t;
+      TTI.talles.actualizarWhatsApp('talleResultado', 'remera clásica', 'ancho', ancho, t);
       
       // Lógica de talle alternativo (más al cuerpo)
       var orden = TTI.constantes.talles.remera.orden;
@@ -134,8 +145,9 @@ TTI.talles.jogger = {
       };
 
       document.getElementById("talleJoggerSugerido").textContent = talleBase.talle;
+      TTI.talles.actualizarWhatsApp("talleJoggerResultado", "jogger", "cintura", cPlano, talleBase.talle);
       document.getElementById("talleJoggerMedidas").innerHTML = 
-        "La medida que ingresaste es de <span class='result-premium-highlight'>" + formatearNum(cPlano) + " cm</span> de cintura en plano, equivalente aproximadamente a <span class='result-premium-highlight'>" + formatearNum(cinturaTotal) + " cm</span> de contorno.";
+        "Ingresaste <span class='result-premium-highlight'>" + formatearNum(cPlano) + " cm</span> de cintura en plano. Eso equivale a <span class='result-premium-highlight'>" + formatearNum(cinturaTotal) + " cm</span> de contorno.";
       
       var altCont = document.getElementById("talleJoggerAlternativoCont");
       var altVal = document.getElementById("talleJoggerSugeridoMayor");
@@ -218,6 +230,7 @@ TTI.talles.bermuda = {
       };
 
       document.getElementById("talleBermudaSugerido").textContent = mejor.talle;
+      TTI.talles.actualizarWhatsApp("talleBermudaResultadoPremium", "bermuda", "cintura", cPlano, mejor.talle);
       document.getElementById("talleBermudaInfoMedida").textContent =
         "Ingresaste " + formatearNum(cPlano) + " cm de cintura en plano, equivalentes a " + formatearNum(cinturaTotal) + " cm de contorno. Medidas de referencia del talle " + mejor.talle + ": cintura en plano " + formatearNum(mejor.cintura / 2) + " cm, tiro " + formatearNum(mejor.tiro) + " cm y largo " + formatearNum(mejor.largo) + " cm.";
 
@@ -290,6 +303,7 @@ TTI.talles.oversize = {
 
       errorBox.style.display = 'none';
       document.getElementById('talleOversizeSugerido').innerText = t;
+      TTI.talles.actualizarWhatsApp('talleOversizeResultado', 'remera oversize', 'ancho', ancho, t);
       
       var orden = TTI.constantes.talles.oversize.orden;
       var i = orden.indexOf(t);
