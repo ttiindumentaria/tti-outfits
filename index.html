@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Tetelestai Outfit App</title>
+<title>TTi Uno · Encontrá tu talle TTi</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#111111">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -15,9 +15,10 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/bienvenida.css">
 <link rel="stylesheet" href="css/buscador.css">
-<link rel="stylesheet" href="css/talles.css?v=promos-2">
+<link rel="stylesheet" href="css/talles.css?v=tienda-1">
 <link rel="stylesheet" href="css/modal.css">
 <link rel="stylesheet" href="css/redesign.css">
+<link rel="stylesheet" href="css/tienda.css?v=5">
 </head>
 <body class="is-loading">
 
@@ -25,24 +26,24 @@
     <div id="welcomeScreen" class="welcome">
       <div class="welcome-card">
         <div class="welcome-logo">TETELESTAI</div>
-        <h1 class="welcome-main-title">CALCULÁ TU TALLE SIN ERRORES</h1>
-        <p class="welcome-description">En menos de un minuto.</p>
+        <h1 class="welcome-main-title">Encontrá tu talle TTi</h1>
+        <p class="welcome-description">Compará las medidas con una prenda que ya te quede bien.</p>
         
         <div class="welcome-actions">
           <button class="welcome-cta" onclick="irATalleRemera()">
-            <span class="cta-main">REMERAS</span>
+            <span class="cta-main">Remeras clásicas</span>
             <span class="cta-sub">Manga corta y larga</span>
           </button>
           <button class="welcome-cta" type="button" onclick="irATalleOversize()">
-            <span class="cta-main">REMERAS OVERSIZE</span>
-            <span class="cta-sub">Corte amplio y moderno</span>
+            <span class="cta-main">Remeras oversize</span>
+            <span class="cta-sub">Corte amplio y relajado</span>
           </button>
           <button class="welcome-cta" type="button" onclick="irATalleJogger()">
-            <span class="cta-main">JOGGERS</span>
-            <span class="cta-sub">Lisos y cargos</span>
+            <span class="cta-main">Joggers</span>
+            <span class="cta-sub">Lisos y cargo</span>
           </button>
           <button class="welcome-cta" type="button" onclick="irATalleBermuda()">
-            <span class="cta-main">BERMUDAS</span>
+            <span class="cta-main">Bermudas</span>
             <span class="cta-sub">Corte chino</span>
           </button>
         </div>
@@ -51,8 +52,8 @@
           <div class="welcome-divider"></div>
           <div class="welcome-links">
             <a href="https://wa.me/5491157365177" target="_blank">WhatsApp</a> · 
-            <a href="https://www.instagram.com/tetelestai.indumentaria" target="_blank">Instagram</a> · 
-            <a href="https://www.tetelestai.com.ar" target="_blank">Web</a>
+            <a href="https://www.instagram.com/tetelestai.indumentaria/" target="_blank">Instagram</a> ·
+            <a href="https://www.tetelestai.com.ar/" target="_blank">Ir a la tienda</a>
           </div>
         </div>
       </div>
@@ -62,19 +63,19 @@
     <div id="talleRemeraScreen" class="talle-screen" style="display:none;">
       
       <div class="talle-screen-header">
-        <button class="btn-top-volver" onclick="volverDesdeTalle()">VOLVER</button>
+        <button class="btn-top-volver" onclick="volverDesdeTalle()">Volver</button>
         
         <!-- Bloque Superior Fondo Oscuro -->
         <div class="talle-header-premium">
           <div class="talle-header-content">
-            <h2 class="talle-header-title">TU REMERA TTi EMPIEZA POR EL TALLE CORRECTO</h2>
+            <h2 class="talle-header-title">Tu remera TTi empieza por el talle correcto</h2>
             <p class="talle-header-subtitle">Calculá tu talle en menos de un minuto.</p>
           </div>
         </div>
       </div>
 
       <div class="talle-card">
-        <h2 class="talle-main-title">CALCULÁ TU TALLE DE REMERA</h2>
+        <h2 class="talle-main-title">Calculá tu talle de remera</h2>
 
         <div class="talle-instructions-box">
           <div class="talle-step-item">
@@ -83,52 +84,52 @@
           </div>
           <div class="talle-step-item">
             <span class="talle-step-number">2.</span>
-            <p class="talle-step-text">Medí el <strong>ancho</strong> de axila a axila.</p>
+            <p class="talle-step-text">Medí el <strong>ancho</strong> de axila a axila. <span class="talle-badge-mandatory">Obligatorio</span></p>
           </div>
           <div class="talle-step-item">
             <span class="talle-step-number">3.</span>
-            <p class="talle-step-text">Medí el <strong>largo</strong> total de la prenda.</p>
+            <p class="talle-step-text">Si querés, medí el <strong>largo</strong> total de la prenda. <span class="talle-badge-optional">Opcional</span></p>
           </div>
           <div class="talle-step-item">
             <span class="talle-step-number">4.</span>
-            <p class="talle-step-text">Ingresá tus medidas y tocá <strong>"Calcular talle"</strong>.</p>
+            <p class="talle-step-text">Con el ancho ya podés calcular tu talle. El largo es opcional.</p>
           </div>
         </div>
 
         <button id="openModalBtn" class="btn-ver-como-medir">
-          VER CÓMO MEDIR
+          Ver cómo medir
         </button>
 
         <div class="talle-form-container">
           <div class="talle-input-field">
-            <label for="anchoInput" class="talle-label-premium">ANCHO (CM)</label>
+            <label for="anchoInput" class="talle-label-premium">Ancho (cm) <span class="status-mandatory">· Obligatorio</span></label>
             <span class="talle-help-text">Medida de axila a axila.</span>
-            <input type="number" id="anchoInput" class="talle-input-premium" placeholder="Ej: 54" min="40" max="80" step="0.1">
+            <input type="number" id="anchoInput" required aria-required="true" class="talle-input-premium" placeholder="Ej: 54" min="40" max="80" step="0.1">
           </div>
           
           <div class="talle-input-field">
-            <label for="largoInput" class="talle-label-premium">LARGO (CM)</label>
+            <label for="largoInput" class="talle-label-premium">Largo (cm) <span class="status-optional">· Opcional</span></label>
             <span class="talle-help-text">Medida total de la prenda.</span>
             <input type="number" id="largoInput" class="talle-input-premium" placeholder="Ej: 74" min="50" max="100" step="0.1">
           </div>
         </div>
 
         <div class="talle-action-buttons">
-          <button id="btnCalcularTalle" class="btn-talle-primary" type="button">CALCULAR TALLE</button>
-          <button id="btnLimpiarTalleRemera" class="btn-talle-secondary" type="button">BORRAR</button>
-          <button type="button" class="btn-talle-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">VOLVER ARRIBA</button>
+          <button id="btnCalcularTalle" class="btn-talle-primary" type="button">Calcular talle</button>
+          <button id="btnLimpiarTalleRemera" class="btn-talle-secondary" type="button">Borrar</button>
+          <button type="button" class="btn-talle-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">Volver arriba</button>
         </div>
 
         <div id="talleError" class="talle-error" style="display:none;">
           No contamos con un talle ideal para esas medidas. Escribinos y te asesoramos.
         </div>
 
-                <div id="talleResultado" class="talle-result-premium" style="display:none;">
-                  <h3 class="result-premium-title">TU TALLE RECOMENDADO ES <span id="talleSugerido"></span></h3>
+                <div id="talleResultado" class="talle-result-premium" tabindex="-1" role="region" aria-label="Resultado del talle" style="display:none;">
+                  <h3 class="result-premium-title">Talle sugerido: <span id="talleSugerido"></span></h3>
                   
                   <div class="result-premium-content">
             <p id="talleRemeraMedidas" class="result-premium-measure"></p>
-                    <p class="result-premium-text">Por la medida que ingresaste, este es el talle que mejor va con vos. Tu remera te va a quedar cómoda, con espacio en el cuerpo y un ajuste suave en pecho y mangas.</p>
+                    <p class="result-premium-text">Comparando con tu medida, te sugerimos este talle para un calce clásico: con espacio en el cuerpo y un ajuste suave en pecho y mangas.</p>
 
                     
                     <div id="talleAlternativoCont" class="result-premium-alt-box" style="display:none;">
@@ -137,13 +138,13 @@
                     </div>
                   </div>
                   
-                  <h4 class="result-premium-cta-title">CONSEGUÍ TU REMERA</h4>
+                  <h4 class="result-premium-cta-title">Conseguí tu remera</h4>
                   
                   <div class="result-premium-actions">
-                    <a href="https://www.tetelestai.com.ar/remera/" target="_blank" class="btn-premium-primary">VER REMERAS</a>
-            <button type="button" class="btn-premium-secondary btn-ver-promos" aria-haspopup="dialog">VER PROMOS</button>
+                    <a href="https://www.tetelestai.com.ar/remera/" target="_blank" class="btn-premium-primary">Ver remeras</a>
+            <button type="button" class="btn-premium-secondary btn-ver-promos" aria-haspopup="dialog">Ver promos</button>
                     <p class="whatsapp-help">¿Tenés alguna duda? Escribinos y te ayudamos.</p>
-            <a href="https://wa.me/5491157365177" target="_blank" rel="noopener noreferrer" class="btn-premium-secondary btn-whatsapp"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.15 1.6 5.96L.02 24l6.25-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.93-5.35 11.94-11.93a11.86 11.86 0 0 0-3.47-8.42ZM12.05 21.82a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.86 9.86 0 0 1-1.51-5.28c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.98 9.88Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg><span>WHATSAPP</span></a>
+            <a href="https://wa.me/5491157365177" target="_blank" rel="noopener noreferrer" class="btn-premium-secondary btn-whatsapp"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.15 1.6 5.96L.02 24l6.25-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.93-5.35 11.94-11.93a11.86 11.86 0 0 0-3.47-8.42ZM12.05 21.82a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.86 9.86 0 0 1-1.51-5.28c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.98 9.88Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg><span>Consultar por WhatsApp</span></a>
                   </div>
                 </div>      </div>
     </div>
@@ -152,19 +153,19 @@
     <div id="talleOversizeScreen" class="talle-screen" style="display:none;">
       
       <div class="talle-screen-header">
-        <button class="btn-top-volver" onclick="volverDesdeTalle()">VOLVER</button>
+        <button class="btn-top-volver" onclick="volverDesdeTalle()">Volver</button>
         
         <!-- Bloque Superior Fondo Oscuro -->
         <div class="talle-header-premium">
           <div class="talle-header-content">
-            <h2 class="talle-header-title">TU REMERA OVERSIZE TTi EMPIEZA POR EL TALLE CORRECTO</h2>
+            <h2 class="talle-header-title">Tu remera oversize TTi empieza por el talle correcto</h2>
             <p class="talle-header-subtitle">Calculá tu talle en menos de un minuto.</p>
           </div>
         </div>
       </div>
 
       <div class="talle-card">
-        <h2 class="talle-main-title">CALCULÁ TU TALLE DE REMERA OVERSIZE</h2>
+        <h2 class="talle-main-title">Calculá tu talle de remera oversize</h2>
 
         <div class="talle-instructions-box">
           <div class="talle-step-item">
@@ -192,51 +193,51 @@
             <span class="talle-step-number">4.</span>
             <div class="talle-step-content">
               <span class="talle-step-title">Calcular</span>
-              <span class="talle-step-description">Ingresá tus medidas y tocá <strong>"Calcular talle"</strong>.</span>
+              <span class="talle-step-description">Con el ancho ya podés calcular tu talle. El largo es opcional.</span>
             </div>
           </div>
         </div>
 
         <button id="openOversizeModalBtn" class="btn-ver-como-medir">
-          VER CÓMO MEDIR
+          Ver cómo medir
         </button>
 
         <div class="talle-form-container">
           <div class="talle-input-field-left">
-            <label for="anchoOversizeInput" class="talle-label-premium">ANCHO (AXILA A AXILA)</label>
+            <label for="anchoOversizeInput" class="talle-label-premium">Ancho (axila a axila)</label>
             <span class="status-mandatory" style="font-size:12px; margin-bottom:8px; display:block;">Obligatorio</span>
             <input type="number" id="anchoOversizeInput" class="talle-input-premium" placeholder="Ej: 63" min="50" max="80" step="0.1">
           </div>
           
           <div class="talle-input-field-left">
-            <label for="largoOversizeInput" class="talle-label-premium">LARGO (CM)</label>
+            <label for="largoOversizeInput" class="talle-label-premium">Largo (cm)</label>
             <span class="status-optional" style="font-size:12px; margin-bottom:8px; display:block;">Opcional</span>
             <input type="number" id="largoOversizeInput" class="talle-input-premium" placeholder="Ej: 83" min="70" max="100" step="0.1">
           </div>
 
           <div class="talle-input-field-left">
-            <label for="cinturaOversizeInput" class="talle-label-premium">CINTURA (CM)</label>
+            <label for="cinturaOversizeInput" class="talle-label-premium">Cintura (cm)</label>
             <span class="status-optional" style="font-size:12px; margin-bottom:8px; display:block;">Opcional</span>
             <input type="number" id="cinturaOversizeInput" class="talle-input-premium" placeholder="Ej: 58" min="45" max="80" step="0.1">
           </div>
         </div>
 
         <div class="talle-action-buttons">
-          <button id="btnCalcularTalleOversize" class="btn-talle-primary" type="button">CALCULAR TALLE</button>
-          <button id="btnLimpiarTalleOversize" class="btn-talle-secondary" type="button">BORRAR</button>
-          <button type="button" class="btn-talle-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">VOLVER ARRIBA</button>
+          <button id="btnCalcularTalleOversize" class="btn-talle-primary" type="button">Calcular talle</button>
+          <button id="btnLimpiarTalleOversize" class="btn-talle-secondary" type="button">Borrar</button>
+          <button type="button" class="btn-talle-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">Volver arriba</button>
         </div>
 
         <div id="talleOversizeError" class="talle-error" style="display:none;">
           No contamos con un talle ideal para esas medidas. Escribinos y te asesoramos.
         </div>
 
-        <div id="talleOversizeResultado" class="talle-result-premium" style="display:none;">
-          <h3 class="result-premium-title">TU TALLE RECOMENDADO ES <span id="talleOversizeSugerido"></span></h3>
+        <div id="talleOversizeResultado" class="talle-result-premium" tabindex="-1" role="region" aria-label="Resultado del talle" style="display:none;">
+          <h3 class="result-premium-title">Talle sugerido: <span id="talleOversizeSugerido"></span></h3>
           
           <div class="result-premium-content">
             <p id="talleOversizeMedidas" class="result-premium-measure"></p>
-            <p class="result-premium-text">Por la medida que ingresaste, este es el talle que mejor va con vos. Vas a tener el calce amplio y relajado de una oversize.</p>
+            <p class="result-premium-text">Comparando con tu medida, te sugerimos este talle para el calce amplio y relajado de una oversize.</p>
             
             <div id="talleOversizeAlternativoCont" class="result-premium-alt-box" style="display:none;">
               <span class="alt-premium-label">¿Preferís un calce ligeramente menos amplio?</span>
@@ -244,13 +245,13 @@
             </div>
           </div>
           
-          <h4 class="result-premium-cta-title">CONSEGUÍ TU REMERA OVERSIZE</h4>
+          <h4 class="result-premium-cta-title">Conseguí tu remera oversize</h4>
           
           <div class="result-premium-actions">
-            <a href="https://www.tetelestai.com.ar/remera/remeras-oversize-e2kkg/" target="_blank" class="btn-premium-primary">VER REMERAS OVERSIZE</a>
-            <button type="button" class="btn-premium-secondary btn-ver-promos" aria-haspopup="dialog">VER PROMOS</button>
+            <a href="https://www.tetelestai.com.ar/remera/remeras-oversize-e2kkg/" target="_blank" class="btn-premium-primary">Ver remeras oversize</a>
+            <button type="button" class="btn-premium-secondary btn-ver-promos" aria-haspopup="dialog">Ver promos</button>
             <p class="whatsapp-help">¿Tenés alguna duda? Escribinos y te ayudamos.</p>
-            <a href="https://wa.me/5491157365177" target="_blank" rel="noopener noreferrer" class="btn-premium-secondary btn-whatsapp"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.15 1.6 5.96L.02 24l6.25-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.93-5.35 11.94-11.93a11.86 11.86 0 0 0-3.47-8.42ZM12.05 21.82a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.86 9.86 0 0 1-1.51-5.28c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.98 9.88Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg><span>WHATSAPP</span></a>
+            <a href="https://wa.me/5491157365177" target="_blank" rel="noopener noreferrer" class="btn-premium-secondary btn-whatsapp"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.15 1.6 5.96L.02 24l6.25-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.93-5.35 11.94-11.93a11.86 11.86 0 0 0-3.47-8.42ZM12.05 21.82a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.86 9.86 0 0 1-1.51-5.28c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.98 9.88Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg><span>Consultar por WhatsApp</span></a>
           </div>
         </div>
       </div>
@@ -260,19 +261,19 @@
     <div id="talleJoggerScreen" class="talle-screen" style="display:none;">
       
       <div class="talle-screen-header">
-        <button class="btn-top-volver" onclick="volverDesdeTalle()">VOLVER</button>
+        <button class="btn-top-volver" onclick="volverDesdeTalle()">Volver</button>
 
         <!-- Bloque Superior Fondo Oscuro -->
         <div class="talle-header-premium">
           <div class="talle-header-content">
-            <h2 class="talle-header-title">TU JOGGER TTi EMPIEZA POR EL TALLE CORRECTO</h2>
+            <h2 class="talle-header-title">Tu jogger TTi empieza por el talle correcto</h2>
             <p class="talle-header-subtitle">Calculá tu talle en menos de un minuto.</p>
           </div>
         </div>
       </div>
 
       <div class="talle-card">
-        <h2 class="talle-main-title">CALCULÁ TU TALLE DE JOGGER</h2>
+        <h2 class="talle-main-title">Calculá tu talle de jogger</h2>
 
         <div class="talle-instructions-box">
           <div class="talle-step-item">
@@ -303,44 +304,44 @@
         </div>
 
         <button id="openJoggerModalBtn" class="btn-ver-como-medir">
-          VER CÓMO MEDIR
+          Ver cómo medir
         </button>
 
         <div class="talle-form-container">
           <div class="talle-input-field-left">
-            <label for="cinturaJoggerInput" class="talle-label-premium">CINTURA (CM EN PLANO)</label>
+            <label for="cinturaJoggerInput" class="talle-label-premium">Cintura (cm en plano)</label>
             <span class="status-mandatory" style="font-size:12px; margin-bottom:8px; display:block;">Obligatorio</span>
             <input type="number" id="cinturaJoggerInput" class="talle-input-premium" placeholder="Ej: 46" min="30" max="80" step="0.1">
           </div>
           <div class="talle-input-field-left">
-            <label for="tiroJoggerInput" class="talle-label-premium">TIRO (CM)</label>
+            <label for="tiroJoggerInput" class="talle-label-premium">Tiro (cm)</label>
             <span class="status-optional" style="font-size:12px; margin-bottom:8px; display:block;">Opcional</span>
             <input type="number" id="tiroJoggerInput" class="talle-input-premium" placeholder="Ej: 29.5" min="20" max="40" step="0.1">
           </div>
           <div class="talle-input-field-left">
-            <label for="largoJoggerInput" class="talle-label-premium">LARGO (CM)</label>
+            <label for="largoJoggerInput" class="talle-label-premium">Largo (cm)</label>
             <span class="status-optional" style="font-size:12px; margin-bottom:8px; display:block;">Opcional</span>
             <input type="number" id="largoJoggerInput" class="talle-input-premium" placeholder="Ej: 102" min="80" max="120" step="0.1">
           </div>
         </div>
 
         <div class="talle-action-buttons">
-          <button id="btnCalcularTalleJogger" class="btn-talle-primary" type="button">CALCULAR TALLE</button>
-          <button id="btnLimpiarTalleJogger" class="btn-talle-secondary" type="button">BORRAR</button>
-          <button type="button" class="btn-talle-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">VOLVER ARRIBA</button>
+          <button id="btnCalcularTalleJogger" class="btn-talle-primary" type="button">Calcular talle</button>
+          <button id="btnLimpiarTalleJogger" class="btn-talle-secondary" type="button">Borrar</button>
+          <button type="button" class="btn-talle-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">Volver arriba</button>
         </div>
 
         <div id="talleJoggerError" class="talle-error" style="display:none;">
           No contamos con un talle ideal para esas medidas. Escribinos y te asesoramos.
         </div>
 
-        <div id="talleJoggerResultado" class="talle-result-premium" style="display:none;">
-          <h3 class="result-premium-title">TU TALLE RECOMENDADO ES <span id="talleJoggerSugerido"></span></h3>
+        <div id="talleJoggerResultado" class="talle-result-premium" tabindex="-1" role="region" aria-label="Resultado del talle" style="display:none;">
+          <h3 class="result-premium-title">Talle sugerido: <span id="talleJoggerSugerido"></span></h3>
           
           <div class="result-premium-content">
             <p id="talleJoggerMedidas" class="result-premium-measure"></p>
             
-            <p class="result-premium-text">Este talle te va a quedar cómodo. La cintura con elástico acompaña tus movimientos para que puedas usarlo todo el día.</p>
+            <p class="result-premium-text">Comparando con tu medida, te sugerimos este talle. La cintura con elástico permite un calce más flexible.</p>
             
             <div id="talleJoggerAlternativoCont" class="result-premium-alt-box" style="display:none;">
               <span class="alt-premium-label">¿Lo preferís un poco más suelto?</span>
@@ -348,13 +349,13 @@
             </div>
           </div>
           
-          <h4 class="result-premium-cta-title">CONSEGUÍ TU JOGGER</h4>
+          <h4 class="result-premium-cta-title">Conseguí tu jogger</h4>
           
           <div class="result-premium-actions">
-            <a href="https://www.tetelestai.com.ar/pantalon/" target="_blank" class="btn-premium-primary">VER JOGGERS</a>
-            <button type="button" class="btn-premium-secondary btn-ver-promos" aria-haspopup="dialog">VER PROMOS</button>
+            <a href="https://www.tetelestai.com.ar/pantalon/" target="_blank" class="btn-premium-primary">Ver joggers y bermudas</a>
+            <button type="button" class="btn-premium-secondary btn-ver-promos" aria-haspopup="dialog">Ver promos</button>
             <p class="whatsapp-help">¿Tenés alguna duda? Escribinos y te ayudamos.</p>
-            <a href="https://wa.me/5491157365177" target="_blank" rel="noopener noreferrer" class="btn-premium-secondary btn-whatsapp"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.15 1.6 5.96L.02 24l6.25-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.93-5.35 11.94-11.93a11.86 11.86 0 0 0-3.47-8.42ZM12.05 21.82a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.86 9.86 0 0 1-1.51-5.28c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.98 9.88Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg><span>WHATSAPP</span></a>
+            <a href="https://wa.me/5491157365177" target="_blank" rel="noopener noreferrer" class="btn-premium-secondary btn-whatsapp"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.15 1.6 5.96L.02 24l6.25-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.93-5.35 11.94-11.93a11.86 11.86 0 0 0-3.47-8.42ZM12.05 21.82a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.86 9.86 0 0 1-1.51-5.28c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.98 9.88Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg><span>Consultar por WhatsApp</span></a>
           </div>
         </div>
       </div>
@@ -364,19 +365,19 @@
     <div id="talleBermudaScreen" class="talle-screen" style="display:none;">
       
       <div class="talle-screen-header">
-        <button class="btn-top-volver" onclick="volverDesdeTalle()">VOLVER</button>
+        <button class="btn-top-volver" onclick="volverDesdeTalle()">Volver</button>
 
         <!-- Bloque Superior Fondo Oscuro -->
         <div class="talle-header-premium">
           <div class="talle-header-content">
-            <h2 class="talle-header-title">TU BERMUDA TTi EMPIEZA POR EL TALLE CORRECTO</h2>
+            <h2 class="talle-header-title">Tu bermuda TTi empieza por el talle correcto</h2>
             <p class="talle-header-subtitle">Calculá tu talle en menos de un minuto.</p>
           </div>
         </div>
       </div>
 
       <div class="talle-card">
-        <h2 class="talle-main-title">CALCULÁ TU TALLE DE BERMUDA</h2>
+        <h2 class="talle-main-title">Calculá tu talle de bermuda</h2>
 
         <div class="talle-instructions-box">
           <div class="talle-step-item">
@@ -407,42 +408,42 @@
         </div>
 
         <button id="guiaBtnBermuda" class="btn-ver-como-medir">
-          VER CÓMO MEDIR
+          Ver cómo medir
         </button>
 
         <div class="talle-form-container">
           <div class="talle-input-field-left">
-            <label for="cinturaBermudaInput" class="talle-label-premium">CINTURA (CM EN PLANO)</label>
+            <label for="cinturaBermudaInput" class="talle-label-premium">Cintura (cm en plano)</label>
             <span class="status-mandatory" style="font-size:12px; margin-bottom:8px; display:block;">Obligatorio</span>
             <input type="number" id="cinturaBermudaInput" class="talle-input-premium" placeholder="Ej: 44" min="35" max="65" step="0.1">
           </div>
           <div class="talle-input-field-left">
-            <label for="tiroBermudaInput" class="talle-label-premium">TIRO (CM)</label>
+            <label for="tiroBermudaInput" class="talle-label-premium">Tiro (cm)</label>
             <span class="status-optional" style="font-size:12px; margin-bottom:8px; display:block;">Opcional</span>
             <input type="number" id="tiroBermudaInput" class="talle-input-premium" placeholder="Ej: 28" min="20" max="40" step="0.1">
           </div>
           <div class="talle-input-field-left">
-            <label for="largoBermudaInput" class="talle-label-premium">LARGO (CM)</label>
+            <label for="largoBermudaInput" class="talle-label-premium">Largo (cm)</label>
             <span class="status-optional" style="font-size:12px; margin-bottom:8px; display:block;">Opcional</span>
             <input type="number" id="largoBermudaInput" class="talle-input-premium" placeholder="Ej: 47" min="35" max="70" step="0.1">
           </div>
         </div>
 
         <div class="talle-action-buttons">
-          <button id="btnCalcularTalleBermuda" class="btn-talle-primary" type="button">CALCULAR TALLE</button>
-          <button id="btnLimpiarTalleBermuda" class="btn-talle-secondary" type="button">BORRAR</button>
-          <button type="button" class="btn-talle-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">VOLVER ARRIBA</button>
+          <button id="btnCalcularTalleBermuda" class="btn-talle-primary" type="button">Calcular talle</button>
+          <button id="btnLimpiarTalleBermuda" class="btn-talle-secondary" type="button">Borrar</button>
+          <button type="button" class="btn-talle-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">Volver arriba</button>
         </div>
 
         <div id="talleBermudaError" class="talle-error" role="alert" style="display:none;"></div>
 
-        <div id="talleBermudaResultadoPremium" class="talle-result-premium" style="display:none;">
-          <h3 class="result-premium-title">TU TALLE RECOMENDADO ES <span id="talleBermudaSugerido"></span></h3>
+        <div id="talleBermudaResultadoPremium" class="talle-result-premium" tabindex="-1" role="region" aria-label="Resultado del talle" style="display:none;">
+          <h3 class="result-premium-title">Talle sugerido: <span id="talleBermudaSugerido"></span></h3>
           
           <div class="result-premium-content">
             <p id="talleBermudaInfoMedida" class="result-premium-measure"></p>
             
-            <p class="result-premium-text">Por la medida que ingresaste, este es el talle que mejor va con vos. Tu bermuda te va a quedar cómoda para todos los días.</p>
+            <p class="result-premium-text">Comparando con tu medida, te sugerimos este talle para tu bermuda de todos los días.</p>
 
             <div id="talleBermudaAlternativoCont" class="result-premium-alt-box" style="display:none;">
               <span class="alt-premium-label">¿La preferís un poco más suelta?</span>
@@ -450,13 +451,13 @@
             </div>
           </div>
           
-          <h4 class="result-premium-cta-title">CONSEGUÍ TU BERMUDA</h4>
+          <h4 class="result-premium-cta-title">Conseguí tu bermuda</h4>
           
           <div class="result-premium-actions">
-            <a href="https://tetelestai.com.ar/pantalon/bermuda-corte-chino/" target="_blank" rel="noopener noreferrer" class="btn-premium-primary">VER BERMUDAS</a>
-            <button type="button" class="btn-premium-secondary btn-ver-promos" aria-haspopup="dialog">VER PROMOS</button>
+            <a href="https://tetelestai.com.ar/pantalon/bermuda-corte-chino/" target="_blank" rel="noopener noreferrer" class="btn-premium-primary">Ver bermudas</a>
+            <button type="button" class="btn-premium-secondary btn-ver-promos" aria-haspopup="dialog">Ver promos</button>
             <p class="whatsapp-help">¿Tenés alguna duda? Escribinos y te ayudamos.</p>
-            <a href="https://wa.me/5491157365177" target="_blank" rel="noopener noreferrer" class="btn-premium-secondary btn-whatsapp"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.15 1.6 5.96L.02 24l6.25-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.93-5.35 11.94-11.93a11.86 11.86 0 0 0-3.47-8.42ZM12.05 21.82a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.86 9.86 0 0 1-1.51-5.28c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.98 9.88Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg><span>WHATSAPP</span></a>
+            <a href="https://wa.me/5491157365177" target="_blank" rel="noopener noreferrer" class="btn-premium-secondary btn-whatsapp"><svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.91 11.91 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.15 1.6 5.96L.02 24l6.25-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.93-5.35 11.94-11.93a11.86 11.86 0 0 0-3.47-8.42ZM12.05 21.82a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.86 9.86 0 0 1-1.51-5.28c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.02 2.91 9.85 9.85 0 0 1 2.9 7.02c0 5.47-4.45 9.92-9.98 9.88Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.27.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg><span>Consultar por WhatsApp</span></a>
           </div>
         </div>
       </div>
@@ -477,12 +478,12 @@
     <button type="button" class="promos-close" aria-label="Cerrar promociones">×</button>
     <h2 id="promosTitulo">Armá tu pack</h2>
     <div id="promosContenido"></div>
-    <a id="promosPackLink" class="btn-premium-primary" target="_blank" rel="noopener noreferrer">ARMÁ TU PACK</a>
+    <a id="promosPackLink" class="btn-premium-primary" target="_blank" rel="noopener noreferrer">Armá tu pack</a>
   </dialog>
   <script src="js/constantes.js"></script>
-  <script src="js/calcular-talles.js?v=medidas-1"></script>
+  <script src="js/calcular-talles.js?v=tienda-1"></script>
   <script src="js/app.js"></script>
-  <script src="js/promos.js"></script>
+  <script src="js/promos.js?v=tienda-2"></script>
 
     <script>
       // Lógica del Modal de Imagen

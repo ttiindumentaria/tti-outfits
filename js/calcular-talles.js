@@ -19,7 +19,10 @@ TTI.talles.actualizarWhatsApp = function(resultado, prenda, medida, valor, talle
   if (!enlace) return;
   var mensaje = '¡Hola! Vengo de usar TTi Uno para calcular mi talle de ' + prenda +
     '. Ingresé ' + valor.toString().replace('.', ',') + ' cm de ' + medida +
-    ' en plano y me recomendó talle ' + talle + '. Quería consultarles algo.';
+    ' en plano.';
+  var resumen = document.querySelector('#' + resultado + ' .result-premium-measure');
+  if (resumen) mensaje = '¡Hola! Vengo de usar TTi Uno para calcular mi talle de ' + prenda + '. ' + resumen.textContent.replace('Ingresaste', 'Ingresé').replace('También ingresaste', 'También ingresé');
+  mensaje += ' La app me sugirió talle ' + talle + '. Quería consultarles algo.';
   enlace.href = 'https://wa.me/5491157365177?text=' + encodeURIComponent(mensaje);
 };
 
@@ -27,7 +30,7 @@ TTI.talles.actualizarWhatsApp = function(resultado, prenda, medida, valor, talle
 TTI.talles.mostrarMedidas = function(destino, principal, esCintura, opcionales) {
   var formato = function(valor) { return valor.toString().replace('.', ','); };
   var texto = esCintura
-    ? 'Ingresaste ' + formato(principal) + ' cm. Esto equivale a ' + formato(principal * 2) + ' cm de contorno.'
+    ? 'Ingresaste ' + formato(principal) + ' cm en plano, que equivalen a ' + formato(principal * 2) + ' cm de contorno.'
     : 'Ingresaste ' + formato(principal) + ' cm de ancho.';
   var adicionales = [];
   opcionales.forEach(function(campo) {
@@ -98,7 +101,8 @@ TTI.talles.remera = {
       }
 
       resBox.style.display = 'block';
-      resBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      resBox.focus({ preventScroll: true });
+      resBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     // Botón borrar datos remera
@@ -158,8 +162,8 @@ TTI.talles.jogger = {
       }
 
       document.getElementById("talleJoggerSugerido").textContent = talleBase.talle;
-      TTI.talles.actualizarWhatsApp("talleJoggerResultado", "jogger", "cintura", cPlano, talleBase.talle);
       TTI.talles.mostrarMedidas('talleJoggerMedidas', cPlano, true, [{id: 'tiroJoggerInput', nombre: 'tiro'}, {id: 'largoJoggerInput', nombre: 'largo'}]);
+      TTI.talles.actualizarWhatsApp("talleJoggerResultado", "jogger", "cintura", cPlano, talleBase.talle);
       
       var altCont = document.getElementById("talleJoggerAlternativoCont");
       var altVal = document.getElementById("talleJoggerSugeridoMayor");
@@ -172,7 +176,8 @@ TTI.talles.jogger = {
       }
 
       resBox.style.display = "block";
-      resBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      resBox.focus({ preventScroll: true });
+      resBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     // Botón borrar datos jogger
@@ -238,8 +243,8 @@ TTI.talles.bermuda = {
       }
 
       document.getElementById("talleBermudaSugerido").textContent = mejor.talle;
-      TTI.talles.actualizarWhatsApp("talleBermudaResultadoPremium", "bermuda", "cintura", cPlano, mejor.talle);
       TTI.talles.mostrarMedidas('talleBermudaInfoMedida', cPlano, true, [{id: 'tiroBermudaInput', nombre: 'tiro'}, {id: 'largoBermudaInput', nombre: 'largo'}]);
+      TTI.talles.actualizarWhatsApp("talleBermudaResultadoPremium", "bermuda", "cintura", cPlano, mejor.talle);
 
       var altCont = document.getElementById("talleBermudaAlternativoCont");
       var altVal = document.getElementById("talleBermudaSugeridoMayor");
@@ -252,7 +257,8 @@ TTI.talles.bermuda = {
       }
 
       resBox.style.display = "block";
-      resBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      resBox.focus({ preventScroll: true });
+      resBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     // Botón borrar datos bermuda
@@ -326,7 +332,8 @@ TTI.talles.oversize = {
       }
 
       resBox.style.display = 'block';
-      resBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      resBox.focus({ preventScroll: true });
+      resBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     var btnClear = document.getElementById('btnLimpiarTalleOversize');

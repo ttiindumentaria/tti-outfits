@@ -1,0 +1,92 @@
+/* Identidad de TTi Uno compartida con la tienda. */
+:root {
+  --font-family-base: 'Montserrat', sans-serif;
+  --font-family-display: 'Montserrat', sans-serif;
+  --bg-color: #F7F7F5;
+  --bg-primary: #F7F7F5;
+  --text-primary: #111111;
+  --text-description-on-dark: #E2E2DE;
+  --btn-border: #E2E2DE;
+}
+body, button, input, label, dialog { font-family: 'Montserrat', sans-serif; }
+body { background: #F7F7F5; color: #111; }
+.welcome { background: #111; padding: 40px 20px; }
+.welcome-main-title { color: #fff; font-size: clamp(28px, 5vw, 38px); line-height: 1.2; }
+.welcome-description, .welcome-links a { color: #E2E2DE; }
+.welcome-description { max-width: 470px; line-height: 1.6; }
+.welcome-links { line-height: 2; }
+.welcome-links a { text-decoration: underline; text-underline-offset: 4px; }
+.welcome-actions { gap: 14px; }
+.welcome-cta:not([onclick*="entrarApp"]) { background: #fff; border: 1px solid #E2E2DE; padding: 17px 20px; margin: 0; display: flex; line-height: 1.4; border-radius: 12px; }
+.welcome-cta .cta-main { font-size: 17px; text-transform: none; letter-spacing: normal; line-height: 1.4; }
+.welcome-cta .cta-sub { font-size: 16px; line-height: 1.4; color: #4a4a4a; margin-top: 4px; }
+.welcome-cta:hover { transform: none; }
+.talle-screen { padding: 24px 16px 48px; }
+.talle-card { background: #fff; border: 1px solid #E2E2DE; box-shadow: none; padding: 28px 20px; border-radius: 16px; }
+.talle-header-premium { background: #111; box-shadow: none; border-radius: 16px; }
+.talle-header-title, .talle-main-title, .talle-label-premium, .result-premium-title, .result-premium-cta-title,
+.btn-premium-primary, .btn-premium-secondary, .btn-talle-primary, .btn-talle-secondary, .btn-top-volver,
+.btn-ver-como-medir, .talle-step-title { text-transform: none; letter-spacing: normal; font-family: 'Montserrat', sans-serif; }
+.talle-header-title { font-size: clamp(21px, 4vw, 28px); line-height: 1.4; }
+.talle-header-subtitle { color: #E2E2DE; }
+.talle-main-title { font-size: 24px; line-height: 1.4; }
+.talle-label-premium, .talle-input-premium { font-size: 16px; }
+.talle-input-premium { min-height: 52px; border-color: #E2E2DE; }
+.talle-step-description, .talle-step-clarification, .talle-help-text, .result-premium-text,
+.result-premium-measure, .alt-premium-label, .alt-premium-value, .whatsapp-help { font-size: 16px; line-height: 1.65; }
+.status-mandatory, .status-optional { font-size: 16px !important; color: #4a4a4a; }
+.talle-badge-mandatory, .talle-badge-optional { font-size: 15px; }
+.talle-result-premium { scroll-margin-top: 24px; box-shadow: none; }
+.result-premium-title { font-size: clamp(25px, 4vw, 32px); line-height: 1.3; }
+.result-premium-alt-box { border-color: #E2E2DE; background: #F7F7F5; padding: 16px; border-radius: 10px; }
+.alt-premium-label, .alt-premium-value { font-size: 15px; font-weight: 400; }
+.result-premium-actions, .talle-action-buttons { gap: 14px; }
+.btn-premium-primary, .btn-premium-secondary, .btn-talle-primary, .btn-talle-secondary { min-height: 54px; height: auto; padding: 14px 16px; font-size: 16px; line-height: 1.4; border-radius: 12px; white-space: normal; }
+.btn-premium-primary, #btnCalcularTalle, #btnCalcularTalleOversize, #btnCalcularTalleJogger, #btnCalcularTalleBermuda { background: #111; color: #fff; border: 1px solid #111; }
+.btn-premium-secondary, .btn-talle-secondary, .btn-ver-como-medir, .btn-top-volver { background: #fff; color: #111; border: 1px solid #111; }
+#btnCalcularTalle:hover, #btnCalcularTalleOversize:hover, #btnCalcularTalleJogger:hover, #btnCalcularTalleBermuda:hover { transform: none; }
+.btn-premium-secondary.btn-whatsapp { background: #fff; color: #111; }
+.promos-dialog { padding: 0 22px 22px; max-height: calc(100dvh - 32px); box-shadow: none; }
+.promos-close { position: sticky; display: block; margin-left: auto; top: 0; right: auto; z-index: 1; background: #fff; width: 48px; height: 48px; }
+.promos-dialog h2 { font-size: 23px; margin: 4px 0 22px; }
+.pack-promos { border-color: #E2E2DE; }
+.pack-shipping { background: #F7F7F5; }
+.pack-promos p, .pack-offer li { font-size: 16px; line-height: 1.6; }
+.pack-offer li { background: #F7F7F5; }
+.pack-offer li b { color: #2F5D50; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid #2F5D50; outline-offset: 4px; }
+@media (min-width: 768px) {
+ .talle-card { padding: 40px; }
+ .talle-screen { padding-top: 32px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Misma respuesta visual para las tres acciones del resultado. */
+.result-premium-actions > .btn-premium-primary,
+.result-premium-actions > .btn-premium-secondary {
+  background: #fff;
+  color: #111;
+  border: 1px solid #111;
+}
+
+.result-premium-actions > .btn-premium-primary,
+.btn-premium-secondary.btn-ver-promos,
+.btn-premium-secondary.btn-whatsapp {
+  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+.result-premium-actions > .btn-premium-primary:focus-visible,
+.btn-premium-secondary.btn-ver-promos:focus-visible,
+.btn-premium-secondary.btn-whatsapp:focus-visible {
+  background: #111;
+  color: #fff;
+}
+@media (any-hover: hover) and (any-pointer: fine) {
+  .result-premium-actions > .btn-premium-primary:hover,
+  .btn-premium-secondary.btn-ver-promos:hover,
+  .btn-premium-secondary.btn-whatsapp:hover {
+    background: #111;
+    color: #fff;
+    transform: scale(1.04);
+    box-shadow: 0 4px 10px #0002;
+  }
+}
