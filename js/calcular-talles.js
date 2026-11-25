@@ -23,6 +23,22 @@ TTI.talles.actualizarWhatsApp = function(resultado, prenda, medida, valor, talle
   enlace.href = 'https://wa.me/5491157365177?text=' + encodeURIComponent(mensaje);
 };
 
+// Resumir únicamente las medidas que ingresó la persona.
+TTI.talles.mostrarMedidas = function(destino, principal, esCintura, opcionales) {
+  var formato = function(valor) { return valor.toString().replace('.', ','); };
+  var texto = esCintura
+    ? 'Ingresaste ' + formato(principal) + ' cm. Esto equivale a ' + formato(principal * 2) + ' cm de contorno.'
+    : 'Ingresaste ' + formato(principal) + ' cm de ancho.';
+  var adicionales = [];
+  opcionales.forEach(function(campo) {
+    var input = document.getElementById(campo.id);
+    var valor = TTI.talles.validarInput(input.value);
+    if (valor !== null && isFinite(valor)) adicionales.push(formato(valor) + ' cm de ' + campo.nombre);
+  });
+  if (adicionales.length) texto += ' También ingresaste ' + adicionales.join(' y ') + '.';
+  document.getElementById(destino).textContent = texto;
+};
+
 // ---- REMERA ----
 TTI.talles.remera = {
   sugerir: function(ancho) {
@@ -65,6 +81,7 @@ TTI.talles.remera = {
 
       errorBox.style.display = 'none';
       document.getElementById('talleSugerido').innerText = t;
+      TTI.talles.mostrarMedidas('talleRemeraMedidas', ancho, false, [{id: 'largoInput', nombre: 'largo'}]);
       TTI.talles.actualizarWhatsApp('talleResultado', 'remera clásica', 'ancho', ancho, t);
       
       // Lógica de talle alternativo (más al cuerpo)
@@ -140,14 +157,9 @@ TTI.talles.jogger = {
         }
       }
 
-      var formatearNum = function(n) {
-        return Number.isInteger(n) ? n.toString() : n.toFixed(1).replace(".0", "");
-      };
-
       document.getElementById("talleJoggerSugerido").textContent = talleBase.talle;
       TTI.talles.actualizarWhatsApp("talleJoggerResultado", "jogger", "cintura", cPlano, talleBase.talle);
-      document.getElementById("talleJoggerMedidas").innerHTML = 
-        "Ingresaste <span class='result-premium-highlight'>" + formatearNum(cPlano) + " cm</span> de cintura en plano. Eso equivale a <span class='result-premium-highlight'>" + formatearNum(cinturaTotal) + " cm</span> de contorno.";
+      TTI.talles.mostrarMedidas('talleJoggerMedidas', cPlano, true, [{id: 'tiroJoggerInput', nombre: 'tiro'}, {id: 'largoJoggerInput', nombre: 'largo'}]);
       
       var altCont = document.getElementById("talleJoggerAlternativoCont");
       var altVal = document.getElementById("talleJoggerSugeridoMayor");
@@ -225,14 +237,9 @@ TTI.talles.bermuda = {
         }
       }
 
-      var formatearNum = function(n) {
-        return Number.isInteger(n) ? n.toString() : n.toFixed(1).replace(".0", "");
-      };
-
       document.getElementById("talleBermudaSugerido").textContent = mejor.talle;
       TTI.talles.actualizarWhatsApp("talleBermudaResultadoPremium", "bermuda", "cintura", cPlano, mejor.talle);
-      document.getElementById("talleBermudaInfoMedida").textContent =
-        "Ingresaste " + formatearNum(cPlano) + " cm de cintura en plano, equivalentes a " + formatearNum(cinturaTotal) + " cm de contorno. Medidas de referencia del talle " + mejor.talle + ": cintura en plano " + formatearNum(mejor.cintura / 2) + " cm, tiro " + formatearNum(mejor.tiro) + " cm y largo " + formatearNum(mejor.largo) + " cm.";
+      TTI.talles.mostrarMedidas('talleBermudaInfoMedida', cPlano, true, [{id: 'tiroBermudaInput', nombre: 'tiro'}, {id: 'largoBermudaInput', nombre: 'largo'}]);
 
       var altCont = document.getElementById("talleBermudaAlternativoCont");
       var altVal = document.getElementById("talleBermudaSugeridoMayor");
@@ -303,6 +310,7 @@ TTI.talles.oversize = {
 
       errorBox.style.display = 'none';
       document.getElementById('talleOversizeSugerido').innerText = t;
+      TTI.talles.mostrarMedidas('talleOversizeMedidas', ancho, false, [{id: 'largoOversizeInput', nombre: 'largo'}, {id: 'cinturaOversizeInput', nombre: 'cintura en plano'}]);
       TTI.talles.actualizarWhatsApp('talleOversizeResultado', 'remera oversize', 'ancho', ancho, t);
       
       var orden = TTI.constantes.talles.oversize.orden;
